@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\userlogins;
+use App\Models\registeruser;
 use Illuminate\Support\Facades\DB;
 
 class userctrl extends Controller
@@ -12,6 +13,12 @@ class userctrl extends Controller
     {
         return
             view('login');
+    }
+
+    public function signup()
+    {
+        return
+            view('signup');
     }
     public function viewdashboard()
     {
@@ -24,6 +31,20 @@ class userctrl extends Controller
     }
     
 
+    public function store(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $registeruser = new registeruser();
+            
+            $input = $request->all();
+            
+            $registeruser->name = $request->input('name');
+            $registeruser->email = $request->input('email');
+            $registeruser->password = $request->input('password');
+            $registeruser->save();
+            return redirect('indexlogin');
+        } else return view('signup');
+    }
 
     function login(Request $request)
     {

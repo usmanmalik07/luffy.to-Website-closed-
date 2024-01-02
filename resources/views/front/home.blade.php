@@ -47,6 +47,7 @@
           <li><a class="nav-link scrollto" href="#contact-us">Contact-us</a></li>
           <li><a class="nav-link scrollto " href="{{ route('front.aboutus') }}">About us</a></li>
           <li><a class="nav-link scrollto " href="{{ route('login') }}">Admin</a></li>
+          <li><a class="nav-link scrollto " href="{{ route('signup') }}">Account</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
