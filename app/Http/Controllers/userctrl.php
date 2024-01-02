@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\userlogins;
+use App\Models\registeruser;
 use Illuminate\Support\Facades\DB;
 use App\Models\animenames;
 use App\Models\itemnames;
@@ -81,6 +82,12 @@ return redirect()->route('dashboard')->with('success', 'Name removed successfull
         return
             view('login');
     }
+
+    public function signup()
+    {
+        return
+            view('signup');
+    }
     public function viewdashboard()
     {
         if (session()->has('user_email')) {
@@ -92,6 +99,20 @@ return redirect()->route('dashboard')->with('success', 'Name removed successfull
     }
 
 
+    public function store(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $registeruser = new registeruser();
+            
+            $input = $request->all();
+            
+            $registeruser->name = $request->input('name');
+            $registeruser->email = $request->input('email');
+            $registeruser->password = $request->input('password');
+            $registeruser->save();
+            return redirect('indexlogin');
+        } else return view('signup');
+    }
 
 
     function login(Request $request)

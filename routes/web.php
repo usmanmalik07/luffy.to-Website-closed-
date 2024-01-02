@@ -25,7 +25,10 @@ Route::get('/aboutus',[FrontController::class,'aboutus'])->name('front.aboutus')
 //     return view('login');
 // });
 Route::get('/login',[userctrl::class,'indexlogin'])->name('login');
+Route::get('/signup',[userctrl::class,'signup'])->name('signup');
 
+Route::post('/signup', 'App\Http\Controllers\userctrl@store');
+//Route::get('/signup', 'App\Http\Controllers\userctrl@signup');
 Route::get('/dashboard', 'App\Http\Controllers\userctrl@viewdashboard');
 Route::get('/logout', 'App\Http\Controllers\userctrl@logout');
 Route::post('/login', 'App\Http\Controllers\userctrl@login');
