@@ -52,7 +52,7 @@
       </nav>
     </div>
   </header><!-- End Header -->
- 
+
     <div class="container1" id="hero">
       <div class="bg1">
         <img src="" alt="">
@@ -107,7 +107,7 @@
 
           </div>
           <div id="1" class="col-md-2 pb-video">
-              <a href="{{asset('front-assets/pages/watchindex.html?webseries=1')}}">
+              <a href="{{asset('front-assets/pages/watchindex.html?webseries=0')}}">
                 <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/opcover.jpg')}}" alt="Thumbnail 2">
               </a>
               <a class="pb-text" href="pages/aot.html">
@@ -143,7 +143,7 @@
 
         </div>
         <div class="col-md-2 pb-video">
-          <a href="https://www.example.com/link8">
+          <a href="{{asset('front-assets/pages/watchindex.html?webseries=5')}}">
             <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/jjkcover.jpg')}}" alt="Thumbnail 8">
           </a>
           <a class="pb-text" href="pages/aot.html">
