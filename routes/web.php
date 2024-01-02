@@ -30,3 +30,6 @@ Route::get('/dashboard', 'App\Http\Controllers\userctrl@viewdashboard');
 Route::get('/logout', 'App\Http\Controllers\userctrl@logout');
 Route::post('/login', 'App\Http\Controllers\userctrl@login');
 // Route::get('/login', 'App\Http\Controllers\userctrl@indexlogin');
+Route::get('/dashboard', [userctrl::class, 'printName'])->name('dashboard');
+Route::post('/add-name', [userctrl::class, 'addName'])->name('add.name');
+Route::get('/remove-name/{id}', [userctrl::class, 'removeName'])->name('remove.name');
