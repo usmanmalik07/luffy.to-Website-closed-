@@ -40,7 +40,5 @@ Route::delete('/remove-name/{id}', [userctrl::class, 'removeName'])->name('remov
 // Route::get('/dashboard', [userctrl::class, 'printItem'])->name('dashboard');
 // Route::post('/add-Item', [userctrl::class, 'addItem'])->name('add.Item');
 // Route::delete('/remove-Item/{id}', [userctrl::class, 'removeName'])->name('remove.Item');
-Route::get('/search', [userCtrl::class, 'search'])->name('anime.search');
-
-
+Route::get('/search', [userctrl::class, 'search'])->name("search.name");
 

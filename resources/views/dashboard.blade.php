@@ -20,17 +20,32 @@
 
 
    </head>
+
     <body class="sb-nav-fixed">
         <!-- notification message -->
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-                <!-- Navbar Search-->
-                <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="search-input" placeholder="Search Anime Names">
-                        <ul id="suggestions" class="list-group" style="position: absolute; width: 100%; display: none;"></ul>
-                    </div>
-                </form>
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#" >Anime List</a></li>
+                        <li><a class="dropdown-item" href="{{route('dashboard') }}" >Items List</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div style="position: relative; z-index: 1; width: 100%;">
+    <div style="display: flex; align-items: center; width: 100%;">
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" style="width: 100%;">
+            <div class="input-group" style="width: 100%;">
+                <input type="text" class="form-control" id="search-input" placeholder="Search Anime Names">
+                <ul id="suggestions" class="list-group" style="position: absolute; width: 100%; display: none; z-index: 2;"></ul>
+            </div>
+        </form>
+    </div>
+</div>
+
                 <!-- <h4 class="mt-4">Dashboard</h4> -->
                     <!-- <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" /> -->
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
@@ -132,66 +147,43 @@
                 </footer>
             </div>
         </div>
-       <!-- Include jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Add this script below your form -->
-<script>
-    $(document).ready(function () {
-        $('#search-input').on('keyup', function () {
-            var query = $(this).val();
-
-            if (query.trim() !== '') {
-                // Encode the query before sending it
-                query = encodeURIComponent(query);
-
-                $.ajax({
-                    url: '/search',
-                    type: 'GET',
-                    data: { query: query },
-                    success: function (data) {
-                        updateSuggestions(data, query);
-                    }
-                });
-            } else {
-                // If the query is empty, hide the suggestions
-                $('#suggestions').hide();
-            }
-        });
-
-        function updateSuggestions(data, query) {
-            var suggestionsList = $('#suggestions');
-
-            // Clear previous suggestions
-            suggestionsList.empty();
-
-            // Filter and append new suggestions to the dropdown
-            data.forEach(function (result) {
-                if (result.toLowerCase().startsWith(query.toLowerCase())) {
-                    suggestionsList.append('<li class="list-group-item">' + result + '</li>');
-                }
-            });
-
-            // Show the suggestion dropdown
-            suggestionsList.show();
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+    document.getElementById('search-input').addEventListener('input', function () {
+        const inputText = this.value.trim();
+        if (inputText !== '') {
+            fetchSuggestions(inputText);
+        } else {
+            hideSuggestions();
         }
-
-        // Hide suggestions when clicking outside the input and suggestions
-        $(document).on('click', function (event) {
-            if (!$(event.target).closest('#search-input, #suggestions').length) {
-                $('#suggestions').hide();
-            }
-        });
-
-        // Handle suggestion click
-        $('#suggestions').on('click', 'li', function () {
-            var selectedSuggestion = $(this).text();
-            $('#search-input').val(selectedSuggestion);
-            $('#suggestions').hide();
-        });
     });
-</script>
 
+    function fetchSuggestions(query) {
+        axios.get(`/search?q=${query}`)
+            .then(response => showSuggestions(response.data))
+            .catch(error => console.error('Error fetching suggestions:', error));
+    }
+
+    function showSuggestions(suggestions) {
+        const suggestionsList = document.getElementById('suggestions');
+        suggestionsList.innerHTML = '';
+
+        suggestions.forEach(suggestion => {
+            const listItem = document.createElement('li');
+            listItem.className = 'list-group-item';
+            listItem.textContent = suggestion; // Replace with your actual column name
+            suggestionsList.appendChild(listItem);
+        });
+
+        suggestionsList.style.display = 'block';
+    }
+
+    function hideSuggestions() {
+        const suggestionsList = document.getElementById('suggestions');
+        suggestionsList.innerHTML = '';
+        suggestionsList.style.display = 'none';
+    }
+</script>
 
 
 

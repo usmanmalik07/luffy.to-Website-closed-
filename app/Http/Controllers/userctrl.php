@@ -68,24 +68,16 @@ class userctrl extends Controller
                 return redirect()->route('dashboard')->with('success', 'Name removed successfully.');
                 }
 
-
-
-
                 public function search(Request $request)
                 {
-                    $query = $request->input('query');
+                    $query = $request->input('q', '');
 
-                    // Query the database for names that start with the search query (case-insensitive)
-                    $results = animenames::where('name', 'LIKE', "$query%")->collate('utf8_general_ci')->pluck('name');
+                    $results = Animenames::where('name', 'LIKE', '%' . $query . '%')
+                        ->pluck('name')
+                        ->toArray();
 
                     return response()->json($results);
                 }
-
-
-
-
-
-
 
 
                 public function indexlogin()
