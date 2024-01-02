@@ -68,20 +68,29 @@
                                 </div>
                             </div>
                             <h1>User Names</h1>
-                                    <ul>
-                                        @foreach($users as $user)
-                                            <li>{{ $user->name }}</li>
-                                        @endforeach
-                                    </ul>
-                                    <ul>
+
+                            <ul>
+                                @foreach($users as $user)
+                                    <li>
+                                        {{ $user->name }}
+                                        <form action="{{ route('remove.name', ['id' => $user->id]) }}" method="post" style="display:inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" onclick="return confirm('Are you sure?')">Remove</button>
+                                        </form>
+                                    </li>
+                                @endforeach
+                            </ul>
 
 
-<form action="{{ route('add.name') }}" method="post">
-    @csrf
-    <label for="new_name">Add Name:</label>
-    <input type="text" id="new_name" name="new_name" required>
-    <button type="submit">Add</button>
-</form>
+                            <form action="{{ route('add.name') }}" method="post">
+                                @csrf
+                                <label for="new_name">Add Name:</label>
+                                <input type="text" id="new_name" name="new_name" required>
+                                <button type="submit">Add</button>
+                            </form>
+
+
 
                 </main>
                 <footer class="py-4 bg-light mt-auto">

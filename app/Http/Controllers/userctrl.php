@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\userlogins;
 use Illuminate\Support\Facades\DB;
 use App\Models\animenames;
+use App\Models\itemnames;
 
 class userctrl extends Controller
 {
@@ -16,17 +17,22 @@ class userctrl extends Controller
         return view('dashboard', ['users' => $users]);
     }
     public function addName(Request $request)
-{
-    // Validate the request
-    $request->validate([
-        'new_name' => 'required|string|max:255',
-    ]);
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
-    // Add the new name to the database
-    Animenames::create(['name' => $request->input('new_name')]);
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('front-assets/assets/img'), $imageName);
 
-    return redirect()->route('dashboard')->with('success', 'Name added successfully.');
-}
+        Animenames::create([
+            'name' => $request->name,
+            'image_path' => 'front-assets/assets/img/' . $imageName,
+        ]);
+
+        return redirect()->route('dashboard')->with('success', 'Anime added successfully.');
+    }
 
 public function removeName($id)
 {
@@ -35,6 +41,41 @@ public function removeName($id)
 
     return redirect()->route('dashboard')->with('success', 'Name removed successfully.');
 }
+public function printItem()
+{
+
+    $users = itemnames::all();
+    return view('dashboard', ['users' => $users]);
+}
+public function addItem(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    $imageName = time() . '.' . $request->image->extension();
+
+    Animenames::create([
+        'name' => $request->name,
+    ]);
+
+    return redirect()->route('dashboard')->with('success', 'Anime added successfully.');
+}
+
+public function removeItem($id)
+{
+// Remove the name from the database based on the given $id
+Animenames::destroy($id);
+
+return redirect()->route('dashboard')->with('success', 'Name removed successfully.');
+}
+
+
+
+
+
+
     public function indexlogin()
     {
         return
@@ -49,6 +90,7 @@ public function removeName($id)
             return redirect('login');
         }
     }
+
 
 
 
