@@ -49,9 +49,9 @@
               <li><a class="nav-link scrollto " href="/semesterproject/pages/admin/login.php">Admin</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+      </nav>
     </div>
-  </header><!-- End Header -->
+  </header>
  
     <div class="container1" id="hero">
       <div class="bg1">
