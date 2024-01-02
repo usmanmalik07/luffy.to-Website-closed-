@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\userctrl;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,9 @@ Route::get('/aboutus',[FrontController::class,'aboutus'])->name('front.aboutus')
 // Route::get('/', function () {
 //     return view('login');
 // });
+Route::get('/login',[userctrl::class,'indexlogin'])->name('login');
 
 Route::get('/dashboard', 'App\Http\Controllers\userctrl@viewdashboard');
 Route::get('/logout', 'App\Http\Controllers\userctrl@logout');
 Route::post('/login', 'App\Http\Controllers\userctrl@login');
-Route::get('/login', 'App\Http\Controllers\userctrl@index');
+// Route::get('/login', 'App\Http\Controllers\userctrl@indexlogin');
