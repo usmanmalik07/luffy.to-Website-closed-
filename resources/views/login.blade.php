@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form action="/login" method="POST" enctype="multipart/form-data">
-            @csrf 
+            @csrf
                 <div class="form-group">
                     <label for="email">Email address</label>
                     <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
@@ -39,7 +39,7 @@
             Copyright © 2020. All rights reserved.
           </div>
           <!-- Copyright -->
-    
+
         </div>
       </section>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
