@@ -18,7 +18,7 @@ html,body {
 }
 .logo-image{
  transform: rotate(-90deg);
- 
+
 }
 
 #header .logo a {
@@ -35,7 +35,7 @@ html,body {
 }
 .navbar {
   padding: 0;
-  
+
 }
 
 .navbar ul {
@@ -108,7 +108,7 @@ html,body {
 }
 
 .navbar .dropdown ul {
-  
+
   width: 100%;
   display: block;
   position: absolute;
@@ -175,7 +175,7 @@ html,body {
 }
 
 /**
-* Mobile Navigation 
+* Mobile Navigation
 */
 .mobile-nav-toggle {
   color: #fff;
@@ -394,9 +394,9 @@ body {
   display: grid;
   grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
   gap: 8px;
-  
+
   transition: grid-template-columns 0.5s ease-in-out;
-  
+
 }
 
 #grid:has(.col1:hover) {
@@ -426,10 +426,10 @@ body {
 }
 
 .col1 {
-  background-image: url(App/public/front-assets/assets/img/op.jpg) ;
+  background-image: url(http://localhost/App/public/front-assets/assets/img/op.jpg) ;
   transition: background-image 0.5s ease-in-out;
   background-position: center;
-  
+
 }
 
 .col1:hover {
@@ -440,12 +440,12 @@ body {
   background-image: url(/assets/img/tokyo.jpg);
   background-position: center;
   transition: background-image 0.5s ease-in-out;
- 
+
 }
 
 .col2:hover {
   background-image: url(/assets/img/tokyo.jpg);
-  
+
 }
 
 .col3 {
@@ -465,7 +465,7 @@ body {
 
 .col4:hover {
   background-image: url(/assets/img/haikyuu.jpg);
-  
+
 }
 .col5 {
   background-image:  url(/assets/img/Spirited\ Away.jpg);
@@ -521,7 +521,7 @@ body {
   #grid:has(.col7:hover) {
     grid-template-columns:   1.6fr 1.6fr 1.6fr 1.6fr 1.6fr 1.6fr 4.4fr;
   }
-  
+
 }
 
 @media screen and (max-width: 425px) {
@@ -566,7 +566,7 @@ body {
     grid-auto-rows: 4fr;
     height: 400%;
   }
-  
+
 }
 
 
@@ -614,7 +614,7 @@ body {
   padding-top: 2px;
   width: 90%;
   text-decoration: solid;
-  
+
 
 }
 
@@ -652,14 +652,14 @@ body {
   border: 0.1rem solid #929292;
   font-size: 1.7rem;
   font-weight: 300;
- 
+
   letter-spacing: 0.1rem;
   outline: none;
 }
 
 .contact-form-input-1:focus {
   color: #929292;
-  
+
 }
 
 .contact-form-input-1::placeholder {
@@ -689,12 +689,12 @@ body {
   margin-top: 5%;
   font-weight: 300;
   text-emphasis: bold;
-  
+
 }
 
 
-  
-  
+
+
 
 
 

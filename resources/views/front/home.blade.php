@@ -33,25 +33,25 @@
           <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="pages/shop.html">⚡Shop⚡</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('front.shop') }}">⚡Shop⚡</a></li>
           <li class="dropdown"><a href="#"><span>Watch</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Categories</a></li>    
+              <li><a href="#">Categories</a></li>
               <li><a href="#imageContainer7">Trending</a></li>
                   <li><a href="#imageContainer7">Most Viewed</a></li>
                   <li><a href="#imageContainer7">Latest</a></li>
-                  
+
             </ul>
           </li>
-          
-          <li><a class="nav-link scrollto" href="#contact-us">Contact-us</a></li>       
-          <li><a class="nav-link scrollto " href="/semesterproject/pages/aim.html">About us</a></li>
+
+          <li><a class="nav-link scrollto" href="#contact-us">Contact-us</a></li>
+          <li><a class="nav-link scrollto " href="{{ route('front.aboutus') }}">About us</a></li>
               <li><a class="nav-link scrollto " href="/semesterproject/pages/admin/login.php">Admin</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
     </div>
-  </header>
+  </header><!-- End Header -->
  
     <div class="container1" id="hero">
       <div class="bg1">
@@ -65,8 +65,8 @@
         <div></div>
         <div></div>
         <div></div>
-        <div></div>        
-        
+        <div></div>
+
       </div>
     </div>
       <!-- TRENDING -->
@@ -79,7 +79,7 @@
           <div id="imageContainer5" class="col col5"></div>
           <div id="imageContainer6" class="col col6"></div>
           <div id="imageContainer7" class="col col7"></div>
-</div> 
+</div>
 
 
 <h1 class="heading">MOST VIEWED</h1>
@@ -91,7 +91,7 @@
           <div id="imageContainer5" class="col col5"></div>
           <div id="imageContainer6" class="col col6"></div>
           <div id="imageContainer7" class="col col7"></div>
-</div> 
+</div>
 
 <div class="container-fluid pb-video-container">
   <div class="col-md-12 col-md-offset-1">
@@ -102,52 +102,52 @@
                 <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/aotcover.jpg')}}" alt="Thumbnail 1">
               </a>
               <a class="pb-text" href="">
-                <label class="pb-text">Attack on Titan</label>  
+                <label class="pb-text">Attack on Titan</label>
               </a>
-              
+
           </div>
           <div id="1" class="col-md-2 pb-video">
               <a href="{{asset('front-assets/pages/watchindex.html?webseries=1')}}">
                 <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/opcover.jpg')}}" alt="Thumbnail 2">
               </a>
               <a class="pb-text" href="pages/aot.html">
-                <label class="pb-text">One Piece</label>  
+                <label class="pb-text">One Piece</label>
               </a>
-              
+
           </div>
           <div class="col-md-2 pb-video">
               <a href="https://www.example.com/link3">
                 <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/hxhcover.jpg')}}" alt="Thumbnail 3">
               </a>
               <a class="pb-text" href="pages/aot.html">
-                <label class="pb-text">Hunter X Hunter</label>  
+                <label class="pb-text">Hunter X Hunter</label>
               </a>
-              
+
           </div>
           <div class="col-md-2 pb-video">
               <a href="">
                 <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/haikyuucover.jpg')}}" alt="Thumbnail 4">
               </a>
               <a class="pb-text" href="">
-                <label class="pb-text">Haikyuu</label>  
+                <label class="pb-text">Haikyuu</label>
               </a>
-             
+
           </div>
           <div class="col-md-2 pb-video">
             <a href="https://www.example.com/link8">
               <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/SpiritedAwaycover.jpg')}}" alt="Thumbnail 8">
             </a>
             <a class="pb-text" href="pages/aot.html">
-              <label class="pb-text">Spirited Away</label>  
+              <label class="pb-text">Spirited Away</label>
             </a>
-            
+
         </div>
         <div class="col-md-2 pb-video">
           <a href="https://www.example.com/link8">
             <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/jjkcover.jpg')}}" alt="Thumbnail 8">
           </a>
           <a class="pb-text" href="pages/aot.html">
-            <label class="pb-text">Jujutsu Kaisen</label>  
+            <label class="pb-text">Jujutsu Kaisen</label>
           </a>
           </div>
       <div class="col-md-2 pb-video">
@@ -155,19 +155,19 @@
           <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/demonslayercover.jpg')}}" alt="Thumbnail 8">
         </a>
         <a class="pb-text" href="pages/aot.html">
-          <label class="pb-text">Demon Slayer</label>  
+          <label class="pb-text">Demon Slayer</label>
         </a>
-        
+
     </div>
     <div class="col-md-2 pb-video">
       <a href="https://www.example.com/link8">
         <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/hellsparadisecover.jpg')}}" alt="Thumbnail 8">
       </a>
       <a class="pb-text" href="pages/aot.html">
-        <label class="pb-text">Hells Paradise</label>  
+        <label class="pb-text">Hells Paradise</label>
       </a>
   </div>
-  
+
       </div>
       <div class="row pb-row">
         <div class="col-md-2 pb-video">
@@ -175,52 +175,52 @@
               <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/bleachcover.jpg')}}" alt="Thumbnail 1">
             </a>
             <a class="pb-text" href="pages/aot.html">
-              <label class="pb-text">Bleach</label>  
+              <label class="pb-text">Bleach</label>
             </a>
-            
+
         </div>
         <div class="col-md-2 pb-video">
             <a href="https://www.example.com/link1">
               <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/tokyoghoulcover.jpg')}}" alt="Thumbnail 2">
             </a>
             <a class="pb-text" href="pages/aot.html">
-              <label class="pb-text">Tokyo Ghoul</label>  
+              <label class="pb-text">Tokyo Ghoul</label>
             </a>
-            
+
         </div>
         <div class="col-md-2 pb-video">
             <a href="https://www.example.com/link33">
               <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/narutocover.jpg')}}" alt="Thumbnail 3">
             </a>
             <a class="pb-text" href="pages/aot.html">
-              <label class="pb-text">Naruto</label>  
+              <label class="pb-text">Naruto</label>
             </a>
-            
+
         </div>
         <div class="col-md-2 pb-video">
             <a href="https://www.example.com/link44">
               <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/bluelockcover.jpg')}}" alt="Thumbnail 4">
             </a>
             <a class="pb-text" href="pages/aot.html">
-              <label class="pb-text">Blue Lock</label>  
+              <label class="pb-text">Blue Lock</label>
             </a>
-           
+
         </div>
         <div class="col-md-2 pb-video">
           <a href="https://www.example.com/link8">
             <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/AoAshicover.jpg')}}" alt="Thumbnail 8">
           </a>
           <a class="pb-text" href="pages/aot.html">
-            <label class="pb-text">Ao Ashi</label>  
+            <label class="pb-text">Ao Ashi</label>
           </a>
-          
+
       </div>
       <div class="col-md-2 pb-video">
         <a href="https://www.example.com/link8">
           <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/vinlandsagacover.jpg')}}" alt="Thumbnail 8">
         </a>
         <a class="pb-text" href="pages/aot.html">
-          <label class="pb-text">Vinland Saga</label>  
+          <label class="pb-text">Vinland Saga</label>
         </a>
         </div>
     <div class="col-md-2 pb-video">
@@ -228,16 +228,16 @@
         <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/monstercover.jpg')}}" alt="Thumbnail 8">
       </a>
       <a class="pb-text" href="pages/aot.html">
-        <label class="pb-text">Monster</label>  
+        <label class="pb-text">Monster</label>
       </a>
-      
+
   </div>
   <div class="col-md-2 pb-video">
     <a href="https://www.example.com/link8">
       <img class="pb-video-thumbnail" src="{{asset('front-assets/assets/img/YourLieInAprilcover.jpg')}}" alt="Thumbnail 8">
     </a>
     <a class="pb-text" href="pages/aot.html">
-      <label class="pb-text">Your Lie in April</label>  
+      <label class="pb-text">Your Lie in April</label>
     </a>
 </div>
 
@@ -257,14 +257,14 @@
     <div></div>
     <div></div>
     <div></div>
-    <div></div>        
-    
+    <div></div>
+
   </div>
 </div>
 
 
 <!-- CONTACT US -->
-          
+
       </div>
   </div>
 </div>
@@ -301,17 +301,17 @@
 
 
 
-   
+
  <!-- FOOTER -->
       <script src="{{asset('front-assets/script/script.js')}}"></script>
       <!-- <script type="module" src="./video-list.js"></script>
         <script type="module" src="./script.js"></script>  -->
         <script src="{{asset('front-assets/script/videoscript.js')}}"></script>
         <script src="{{asset('front-assets/script/video-list.js')}}"></script>
-    
 
- 
- 
+
+
+
 
 </body>
 

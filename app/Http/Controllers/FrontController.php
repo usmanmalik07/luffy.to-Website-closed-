@@ -20,6 +20,10 @@ class FrontController extends Controller
     {
         return view('front.shop');
     }
+    public function aboutus(){
+        return view('front.aboutus');
+
+    }
 
 }
 

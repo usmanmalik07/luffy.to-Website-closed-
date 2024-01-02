@@ -19,13 +19,11 @@ use App\Http\Controllers\FrontController;
 // });
 Route::get('/',[FrontController::class,'index'])->name('front.home');
 Route::get('/shop',[FrontController::class,'shop'])->name('front.shop');
-//Route::get('/watch/{slug}',[MovieController::class,'watch'])->name('front.watch');
-// Route::get('/watch/{id}', [MovieController::class, 'watch'])->name('watch');
+Route::get('/aboutus',[FrontController::class,'aboutus'])->name('front.aboutus');
+// Route::get('/', function () {
+//     return view('login');
+// });
 
-Route::get('/', function () {
-    return view('login');
-});
-Route::get('/',[userctrl::class,'indexlogin'])->name('front.home');
 Route::get('/dashboard', 'App\Http\Controllers\userctrl@viewdashboard');
 Route::get('/logout', 'App\Http\Controllers\userctrl@logout');
 Route::post('/login', 'App\Http\Controllers\userctrl@login');
