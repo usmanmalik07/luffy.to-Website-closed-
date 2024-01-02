@@ -11,18 +11,18 @@ body::-webkit-scrollbar
 body::-webkit-scrollbar-thumb
 {
    height: 80px;
-   background: #375666;
+   background: #000000;
    border: 8px solid transparent;
    border-radius: 12px;
 }
 body::-webkit-scrollbar-thumb:active
 {
-    background: #003349;
+    background: #000000;
 }
 body
 {
     font-family: sans-serif;
-    background: #002333;
+    background: #000000;
 }
 li
 {

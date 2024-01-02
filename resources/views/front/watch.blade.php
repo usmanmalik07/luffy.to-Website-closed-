@@ -17,7 +17,6 @@
             <div class="playlistBx">
                 <div class="header">
                     <div class="row">
-                        <span class="Episode"></span>
                     </div>
                 </div>
                 <ul class="playlist" id="playlist">
