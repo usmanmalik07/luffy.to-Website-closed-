@@ -21,98 +21,109 @@ class userctrl extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
-        $imageName = time() . '.' . $request->image->extension();
-        $request->image->move(public_path('front-assets/assets/img'), $imageName);
 
         Animenames::create([
             'name' => $request->name,
-            'image_path' => 'front-assets/assets/img/' . $imageName,
         ]);
 
         return redirect()->route('dashboard')->with('success', 'Anime added successfully.');
     }
 
-public function removeName($id)
-{
-    // Remove the name from the database based on the given $id
-    Animenames::destroy($id);
 
-    return redirect()->route('dashboard')->with('success', 'Name removed successfully.');
-}
-public function printItem()
-{
+            public function removeName($id)
+            {
+                // Remove the name from the database based on the given $id
+                Animenames::destroy($id);
 
-    $users = itemnames::all();
-    return view('dashboard', ['users' => $users]);
-}
-public function addItem(Request $request)
-{
-    $request->validate([
-        'name' => 'required|string',
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
+                return redirect()->route('dashboard')->with('success', 'Name removed successfully.');
+            }
+            public function printItem()
+            {
 
-    $imageName = time() . '.' . $request->image->extension();
+                $users = itemnames::all();
+                return view('dashboard', ['users' => $users]);
+            }
+                public function addItem(Request $request)
+                {
+                    $request->validate([
+                        'name' => 'required|string',
+                        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                    ]);
 
-    Animenames::create([
-        'name' => $request->name,
-    ]);
+                    $imageName = time() . '.' . $request->image->extension();
 
-    return redirect()->route('dashboard')->with('success', 'Anime added successfully.');
-}
+                    Animenames::create([
+                        'name' => $request->name,
+                    ]);
 
-public function removeItem($id)
-{
-// Remove the name from the database based on the given $id
-Animenames::destroy($id);
+                    return redirect()->route('dashboard')->with('success', 'Anime added successfully.');
+                }
 
-return redirect()->route('dashboard')->with('success', 'Name removed successfully.');
-}
+                public function removeItem($id)
+                {
+                // Remove the name from the database based on the given $id
+                Animenames::destroy($id);
 
-
-
+                return redirect()->route('dashboard')->with('success', 'Name removed successfully.');
+                }
 
 
 
-    public function indexlogin()
-    {
-        return
-            view('login');
-    }
 
-    public function signup()
-    {
-        return
-            view('signup');
-    }
-    public function viewdashboard()
-    {
-        if (session()->has('user_email')) {
-            return        view('dashboard');
-        } else {
+                public function search(Request $request)
+                {
+                    $query = $request->input('query');
 
-            return redirect('login');
-        }
-    }
+                    // Query the database for names that start with the search query (case-insensitive)
+                    $results = animenames::where('name', 'LIKE', "$query%")->collate('utf8_general_ci')->pluck('name');
+
+                    return response()->json($results);
+                }
 
 
-    public function store(Request $request)
-    {
-        if ($request->isMethod('post')) {
-            $registeruser = new registeruser();
-            
-            $input = $request->all();
-            
-            $registeruser->name = $request->input('name');
-            $registeruser->email = $request->input('email');
-            $registeruser->password = $request->input('password');
-            $registeruser->save();
-            return redirect('indexlogin');
-        } else return view('signup');
-    }
+
+
+
+
+
+
+                public function indexlogin()
+                {
+                    return
+                        view('login');
+                }
+
+                public function signup()
+                {
+                    return
+                        view('signup');
+                }
+                public function viewdashboard()
+                {
+                    if (session()->has('user_email')) {
+                        return        view('dashboard');
+                    } else {
+
+                        return redirect('login');
+                    }
+                }
+
+
+                public function store(Request $request)
+                {
+                    if ($request->isMethod('post')) {
+                        $registeruser = new registeruser();
+
+                        $input = $request->all();
+
+                        $registeruser->name = $request->input('name');
+                        $registeruser->email = $request->input('email');
+                        $registeruser->password = $request->input('password');
+                        $registeruser->save();
+                        return redirect('indexlogin');
+                    } else return view('signup');
+                }
 
 
     function login(Request $request)

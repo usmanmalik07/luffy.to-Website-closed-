@@ -24,10 +24,15 @@
         <!-- notification message -->
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                <!-- Navbar Search-->
+                <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="search-input" placeholder="Search Anime Names">
+                        <ul id="suggestions" class="list-group" style="position: absolute; width: 100%; display: none;"></ul>
+                    </div>
+                </form>
+                <!-- <h4 class="mt-4">Dashboard</h4> -->
+                    <!-- <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" /> -->
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
@@ -49,6 +54,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
 
+
                     <div class="sb-sidenav-footer">
                     </div>
                 </nav>
@@ -56,8 +62,8 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <div class="row">
+
+                        <!-- <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Sale Details</div>
@@ -66,29 +72,48 @@
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
-                            </div>
-                            <h1>User Names</h1>
-
-                            <ul>
-                                @foreach($users as $user)
-                                    <li>
-                                        {{ $user->name }}
-                                        <form action="{{ route('remove.name', ['id' => $user->id]) }}" method="post" style="display:inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" onclick="return confirm('Are you sure?')">Remove</button>
-                                        </form>
-                                    </li>
-                                @endforeach
-                            </ul>
-
-
-                            <form action="{{ route('add.name') }}" method="post">
+                            </div> -->
+                            <h1>Animes</h1>
+                            <form action="{{ route('add.name') }}" method="post" class="mt-3" enctype="multipart/form-data">
                                 @csrf
-                                <label for="new_name">Add Name:</label>
-                                <input type="text" id="new_name" name="new_name" required>
-                                <button type="submit">Add</button>
+                                <div class="input-group">
+                                    <label for="name" class="sr-only">Add Name:</label>
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Add Name" required>
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-success">Add</button>
+                                    </div>
+                                </div>
                             </form>
+
+
+
+                            <ul style="padding-top: 5px;" >
+                            @foreach($users as $user)
+                                <li style="padding-top: 5px;">
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card bg-primary text-white mb-4" >
+                                            <div class="card-body">
+                                                {{ $user->name }}
+                                                <form action="{{ route('remove.name', ['id' => $user->id]) }}" method="post" class="mt-2">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Remove</button>
+                                                </form>
+                                            </div>
+                                            <div class="card-footer d-flex align-items-center justify-content-between">
+
+                                                <div class="small text-white"><i class="fas fa-angle-right"></i>
+                                                <!-- <a class="small text-white stretched-link" href="{{ route('front.home') }}">View Details</a></div> -->
+                                            </div>
+                                        </div
+                                    </div>
+                                </li>
+
+                            @endforeach
+                        </ul>
+
+
+
 
 
 
@@ -107,6 +132,70 @@
                 </footer>
             </div>
         </div>
+       <!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Add this script below your form -->
+<script>
+    $(document).ready(function () {
+        $('#search-input').on('keyup', function () {
+            var query = $(this).val();
+
+            if (query.trim() !== '') {
+                // Encode the query before sending it
+                query = encodeURIComponent(query);
+
+                $.ajax({
+                    url: '/search',
+                    type: 'GET',
+                    data: { query: query },
+                    success: function (data) {
+                        updateSuggestions(data, query);
+                    }
+                });
+            } else {
+                // If the query is empty, hide the suggestions
+                $('#suggestions').hide();
+            }
+        });
+
+        function updateSuggestions(data, query) {
+            var suggestionsList = $('#suggestions');
+
+            // Clear previous suggestions
+            suggestionsList.empty();
+
+            // Filter and append new suggestions to the dropdown
+            data.forEach(function (result) {
+                if (result.toLowerCase().startsWith(query.toLowerCase())) {
+                    suggestionsList.append('<li class="list-group-item">' + result + '</li>');
+                }
+            });
+
+            // Show the suggestion dropdown
+            suggestionsList.show();
+        }
+
+        // Hide suggestions when clicking outside the input and suggestions
+        $(document).on('click', function (event) {
+            if (!$(event.target).closest('#search-input, #suggestions').length) {
+                $('#suggestions').hide();
+            }
+        });
+
+        // Handle suggestion click
+        $('#suggestions').on('click', 'li', function () {
+            var selectedSuggestion = $(this).text();
+            $('#search-input').val(selectedSuggestion);
+            $('#suggestions').hide();
+        });
+    });
+</script>
+
+
+
+
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="../../script/adminscript.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>

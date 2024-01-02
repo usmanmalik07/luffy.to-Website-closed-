@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\userctrl;
+use App\Http\Controllers\AnimeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::delete('/remove-name/{id}', [userctrl::class, 'removeName'])->name('remov
 // Route::get('/dashboard', [userctrl::class, 'printItem'])->name('dashboard');
 // Route::post('/add-Item', [userctrl::class, 'addItem'])->name('add.Item');
 // Route::delete('/remove-Item/{id}', [userctrl::class, 'removeName'])->name('remove.Item');
+Route::get('/search', [userCtrl::class, 'search'])->name('anime.search');
 
 
 
