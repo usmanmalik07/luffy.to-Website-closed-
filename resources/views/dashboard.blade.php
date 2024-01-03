@@ -122,7 +122,7 @@
                     </form>
 
                     <div class="row">
-                        @foreach($users as $item)
+                        @foreach($items as $item)
                             <div class="col-xl-3 col-md-6 col-sm-12"  style="padding-top: 10px;">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">

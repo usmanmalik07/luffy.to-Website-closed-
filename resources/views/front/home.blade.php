@@ -100,8 +100,8 @@
 
 </head>
 
-<body>
 
+<body>
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo"><img src="{{asset('front-assets/assets/img/logo.png')}}" alt="" class="img-fluid"></a>
