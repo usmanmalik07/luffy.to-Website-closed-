@@ -8,6 +8,7 @@ use App\Models\registeruser;
 use Illuminate\Support\Facades\DB;
 use App\Models\animenames;
 use App\Models\itemnames;
+use App\Models\Item;
 
 class userctrl extends Controller
 
@@ -170,4 +171,51 @@ class userctrl extends Controller
     }
 
 
+
+
+    public function showShop()
+    {
+        $items = Item::all();
+        return view('shop', compact('items'));
+    }
+
+    public function addItemShop(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string',
+        'price' => 'required|numeric',
+        'quantity' => 'required|integer',
+        'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    // Handle image upload
+    if ($request->hasFile('image')) {
+        $originalFileName = pathinfo($request->file('image')->getClientOriginalName(), PATHINFO_FILENAME);
+        $imagePath = $request->file('image')->storeAs('front-assets/assets/img', $originalFileName . '.' . $request->file('image')->getClientOriginalExtension());
+        $imageUrl = asset($imagePath);
+    } else {
+        $imageUrl = null;
+    }
+
+    $item = Item::create([
+        'name' => $request->name,
+        'price' => $request->price,
+        'quantity' => $request->quantity,
+        'image_path' => $imageUrl,
+    ]);
+
+    return redirect()->route('shop')->with('success', 'Item added successfully.');
 }
+
+
+
+    public function removeItemShop($id)
+    {
+        Item::destroy($id);
+        return redirect()->route('shop')->with('success', 'Item removed successfully.');
+    }
+
+
+
+}
+
