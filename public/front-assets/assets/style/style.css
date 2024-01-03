@@ -400,6 +400,16 @@ body {
   transition: grid-template-columns 0.5s ease-in-out;
 
 }
+#grid2 {
+  width: 100%;
+  height: 50%;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+  gap: 8px;
+
+  transition: grid-template-columns 0.5s ease-in-out;
+
+}
 
 #grid:has(.col1:hover) {
   grid-template-columns: 4.4fr 1.6fr 1.6fr 1.6fr 1.6fr 1.6fr 1.6fr;
@@ -423,79 +433,29 @@ body {
   grid-template-columns:   1.6fr 1.6fr 1.6fr 1.6fr 1.6fr 1.6fr 4.4fr;
 }
 
-.col {
-  background-size: cover;
+
+#grid2:has(.col3:hover) {
+  grid-template-columns:   4.4fr 1.6fr 1.6fr 1.6fr 1.6fr 1.6fr 1.6fr;
+}
+#grid2:has(.col7:hover) {
+  grid-template-columns:   1.6fr 4.4fr 1.6fr 1.6fr 1.6fr 1.6fr 1.6fr;
+}
+#grid2:has(.col1:hover) {
+  grid-template-columns: 1.6fr 1.6fr 4.4fr 1.6fr 1.6fr 1.6fr 1.6fr;
+}
+#grid2:has(.col5:hover) {
+  grid-template-columns:   1.6fr 1.6fr 1.6fr 4.4fr 1.6fr 1.6fr 1.6fr;
+}
+#grid2:has(.col4:hover) {
+  grid-template-columns:   1.6fr 1.6fr 1.6fr 1.6fr 4.4fr 1.6fr 1.6fr;
+}
+#grid2:has(.col2:hover) {
+  grid-template-columns:   1.6fr 1.6fr 1.6fr 1.6fr 1.6fr 4.4fr 1.6fr;
+}
+#grid2:has(.col6:hover) {
+  grid-template-columns:  1.6fr 1.6fr 1.6fr 1.6fr 1.6fr 1.6fr 4.4fr;
 }
 
-.col1 {
-  background-image: url(http://localhost/App/public/front-assets/assets/img/op.jpg) ;
-  transition: background-image 0.5s ease-in-out;
-  background-position: center;
-
-}
-
-.col1:hover {
-  background-image: url(/assets/img/op.jpg);
-}
-
-.col2 {
-  background-image: url(/assets/img/tokyo.jpg);
-  background-position: center;
-  transition: background-image 0.5s ease-in-out;
-
-}
-
-.col2:hover {
-  background-image: url(/assets/img/tokyo.jpg);
-
-}
-
-.col3 {
-  background-image: url(/assets/img/aot.jpg);
-  transition: background-image 0.5s ease-in-out;
-  background-position: center;
-}
-
-.col3:hover {
-  background-image: url(/assets/img/aot.jpg);
-}
-.col4 {
-  background-image: url(/assets/img/haikyuu.jpg);
-  transition: background-image 0.5s ease-in-out;
-  background-position: center;
-}
-
-.col4:hover {
-  background-image: url(/assets/img/haikyuu.jpg);
-
-}
-.col5 {
-  background-image:  url(/assets/img/Spirited\ Away.jpg);
-  background-position: center;
-  transition: background-image 0.5s ease-in-out;
-}
-
-.col5:hover {
-  background-image: url(/assets/img/Spirited\ Away.jpg);
-}
-.col6 {
-  background-image: url(/assets/img/hxh.jpg);
-  transition: background-image 0.5s ease-in-out;
-  background-position: center;
-}
-
-.col6:hover {
-  background-image: url(/assets/img/hxh.jpg);
-}
-.col7 {
-  background-image: url(/assets/img/naruto.jpg);
-  transition: background-image 0.5s ease-in-out;
-  background-position: center;
-}
-
-.col7:hover {
-  background-image: url(/assets/img/naruto.jpg);
-}
 
 
 @media screen and (min-width: 768px) {

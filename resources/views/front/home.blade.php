@@ -21,7 +21,82 @@
 
   <!-- Template Main CSS File -->
  <link rel="stylesheet" href="{{asset('front-assets/assets/style/style.css')}}">
+ <style>
+  .col {
+  background-size: cover;
+}
 
+.col1 {
+  background-image: url('{{ asset('front-assets/assets/img/op.jpg') }}') ;
+  transition: background-image 0.5s ease-in-out;
+  background-position: center;
+
+}
+
+.col1:hover {
+  background-image: url('{{ asset('front-assets/assets/img/op.jpg') }}');
+}
+
+.col2 {
+  background-image: url('{{ asset('front-assets/assets/img/tokyo.jpg') }}');
+  background-position: center;
+  transition: background-image 0.5s ease-in-out;
+
+}
+
+.col2:hover {
+  background-image: url('{{ asset('front-assets/assets/img/tokyo.jpg') }}');
+
+}
+
+.col3 {
+  background-image: url('{{ asset('front-assets/assets/img/aot.jpg') }}');
+  transition: background-image 0.5s ease-in-out;
+  background-position: center;
+}
+
+.col3:hover {
+  background-image: url('{{ asset('front-assets/assets/img/aot.jpg') }}');
+}
+.col4 {
+  background-image: url('{{ asset('front-assets/assets/img/haikyuu.jpg') }}');
+  transition: background-image 0.5s ease-in-out;
+  background-position: center;
+}
+
+.col4:hover {
+  background-image: url('{{ asset('front-assets/assets/img/haikyuu.jpg') }}');
+
+}
+.col5 {
+  background-image:  url('{{ asset('front-assets/assets/img/Spirited Away.jpg') }}');
+  background-position: center;
+  transition: background-image 0.5s ease-in-out;
+}
+
+.col5:hover {
+  background-image: url('{{ asset('front-assets/assets/img/Spirited Away.jpg') }}');
+}
+.col6 {
+  background-image: url('{{ asset('front-assets/assets/img/hxh.jpg') }}');
+  transition: background-image 0.5s ease-in-out;
+  background-position: center;
+}
+
+.col6:hover {
+  background-image: url('{{ asset('front-assets/assets/img/hxh.jpg') }}');
+}
+.col7 {
+  background-image: url('{{ asset('front-assets/assets/img/naruto.jpg') }}');
+  transition: background-image 0.5s ease-in-out;
+  background-position: center;
+}
+
+.col7:hover {
+  background-image: url('{{ asset('front-assets/assets/img/naruto.jpg') }}');;
+}
+ </style>
+  
 
 </head>
 
@@ -84,14 +159,14 @@
 
 
 <h1 class="heading">MOST VIEWED</h1>
-<div id="grid">
-          <div id="imageContainer1" class="col col1"></div>
-          <div id="imageContainer2" class="col col2"></div>
+<div id="grid2">
           <div id="imageContainer3" class="col col3"></div>
-          <div id="imageContainer4" class="col col4"></div>
-          <div id="imageContainer5" class="col col5"></div>
-          <div id="imageContainer6" class="col col6"></div>
           <div id="imageContainer7" class="col col7"></div>
+          <div id="imageContainer1" class="col col1"></div>
+          <div id="imageContainer5" class="col col5"></div>
+          <div id="imageContainer4" class="col col4"></div>
+          <div id="imageContainer2" class="col col2"></div>
+          <div id="imageContainer6" class="col col6"></div>       
 </div>
 
 <div class="container-fluid pb-video-container">
