@@ -75,64 +75,79 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
+            <main class="container-fluid px-4">
 
-                        <!-- <div class="row">
-                            <div class="col-xl-3 col-md-6">
+                    <h1>Animes</h1>
+                    <form action="{{ route('add.name') }}" method="post" class="mt-3" enctype="multipart/form-data">
+                        @csrf
+                        <div class="input-group">
+                            <label for="name" class="sr-only">Add Name:</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Add Name" required>
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-success">Add</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="row">
+                        @foreach($users as $user)
+                            <div class="col-xl-3 col-md-6 col-sm-12" style="padding-top: 10px;">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Sale Details</div>
+                                    <div class="card-body">
+                                        {{ $user->name }}
+                                        <form action="{{ route('remove.name', ['id' => $user->id]) }}" method="post" class="mt-2">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Remove</button>
+                                        </form>
+                                    </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
-                            </div> -->
-                            <h1>Animes</h1>
-                            <form action="{{ route('add.name') }}" method="post" class="mt-3" enctype="multipart/form-data">
-                                @csrf
-                                <div class="input-group">
-                                    <label for="name" class="sr-only">Add Name:</label>
-                                    <input type="text" id="name" name="name" class="form-control" placeholder="Add Name" required>
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-success">Add</button>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <h1>Items</h1>
+                    <form action="{{ route('add.Item') }}" method="post" class="mt-3" enctype="multipart/form-data">
+                        @csrf
+                        <div class="input-group">
+                            <label for="item" class="sr-only">Add Item:</label>
+                            <input type="text" id="item" name="item" class="form-control" placeholder="Add Item" required>
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-success">Add</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="row">
+                        @foreach($users as $item)
+                            <div class="col-xl-3 col-md-6 col-sm-12"  style="padding-top: 10px;">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body">
+                                        {{ $item->name }}
+                                        <form action="{{ route('remove.Item', ['id' => $item->id]) }}" method="post" class="mt-2">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Remove</button>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
-                            </form>
-
-
-
-                            <ul style="padding-top: 5px;" >
-                            @foreach($users as $user)
-                                <li style="padding-top: 5px;">
-                                    <div class="col-xl-3 col-md-6">
-                                        <div class="card bg-primary text-white mb-4" >
-                                            <div class="card-body">
-                                                {{ $user->name }}
-                                                <form action="{{ route('remove.name', ['id' => $user->id]) }}" method="post" class="mt-2">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Remove</button>
-                                                </form>
-                                            </div>
-                                            <div class="card-footer d-flex align-items-center justify-content-between">
-
-                                                <div class="small text-white"><i class="fas fa-angle-right"></i>
-                                                <!-- <a class="small text-white stretched-link" href="{{ route('front.home') }}">View Details</a></div> -->
-                                            </div>
-                                        </div
-                                    </div>
-                                </li>
-
-                            @endforeach
-                        </ul>
-
-
-
-
-
+                            </div>
+                        @endforeach
+                    </div>
 
                 </main>
+
+
+
+
+
+
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">

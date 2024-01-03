@@ -37,8 +37,8 @@ Route::post('/login', 'App\Http\Controllers\userctrl@login');
 Route::get('/dashboard', [userctrl::class, 'printName'])->name('dashboard');
 Route::post('/add-name', [userctrl::class, 'addName'])->name('add.name');
 Route::delete('/remove-name/{id}', [userctrl::class, 'removeName'])->name('remove.name');
-// Route::get('/dashboard', [userctrl::class, 'printItem'])->name('dashboard');
-// Route::post('/add-Item', [userctrl::class, 'addItem'])->name('add.Item');
-// Route::delete('/remove-Item/{id}', [userctrl::class, 'removeName'])->name('remove.Item');
+Route::get('/printItem', [userctrl::class, 'printItem'])->name('print.item');
+Route::post('/add-Item', [userctrl::class, 'addItem'])->name('add.Item');
+Route::delete('/remove-Item/{id}', [userctrl::class, 'removeName'])->name('remove.Item');
 Route::get('/search', [userctrl::class, 'search'])->name("search.name");
 

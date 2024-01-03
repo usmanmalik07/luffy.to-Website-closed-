@@ -10,27 +10,31 @@ use App\Models\animenames;
 use App\Models\itemnames;
 
 class userctrl extends Controller
+
 {
-    public function printName()
-    {
+            // Print Name
+            public function printName()
+            {
 
-        $users = animenames::all();
-        return view('dashboard', ['users' => $users]);
-    }
-    public function addName(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string',
-        ]);
+                $users = animenames::all();
+                return view('dashboard', ['users' => $users]);
+            }
 
-        Animenames::create([
-            'name' => $request->name,
-        ]);
+            // ADD NAME
+            public function addName(Request $request)
+            {
+                $request->validate([
+                    'name' => 'required|string',
+                ]);
 
-        return redirect()->route('dashboard')->with('success', 'Anime added successfully.');
-    }
+                Animenames::create([
+                    'name' => $request->name,
+                ]);
 
+                return redirect()->route('dashboard')->with('success', 'Anime added successfully.');
+            }
 
+            // REMOVE NAME
             public function removeName($id)
             {
                 // Remove the name from the database based on the given $id
@@ -38,35 +42,42 @@ class userctrl extends Controller
 
                 return redirect()->route('dashboard')->with('success', 'Name removed successfully.');
             }
+
+
+            // Print Item
             public function printItem()
             {
-
-                $users = itemnames::all();
-                return view('dashboard', ['users' => $users]);
+                $items = itemnames::all();
+                return view('printItem', ['items' => $items]); // Corrected to 'items'
             }
-                public function addItem(Request $request)
-                {
+
+
+            //Add item
+            public function addItem(Request $request)
+            {
                     $request->validate([
                         'name' => 'required|string',
-                        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
                     ]);
 
-                    $imageName = time() . '.' . $request->image->extension();
-
-                    Animenames::create([
+                    itemnames::create([
                         'name' => $request->name,
                     ]);
 
                     return redirect()->route('dashboard')->with('success', 'Anime added successfully.');
-                }
+            }
+
+                // REMOVE ITEM
 
                 public function removeItem($id)
                 {
                 // Remove the name from the database based on the given $id
-                Animenames::destroy($id);
+                itemnames::destroy($id);
 
                 return redirect()->route('dashboard')->with('success', 'Name removed successfully.');
                 }
+
+
+                //Search
 
                 public function search(Request $request)
                 {
@@ -79,18 +90,19 @@ class userctrl extends Controller
                     return response()->json($results);
                 }
 
-
+                //Login
                 public function indexlogin()
                 {
                     return
                         view('login');
                 }
-
+                //Signup
                 public function signup()
                 {
                     return
                         view('signup');
                 }
+                //Dashboard
                 public function viewdashboard()
                 {
                     if (session()->has('user_email')) {
@@ -112,7 +124,7 @@ class userctrl extends Controller
                             'email' => 'required|email|unique:users',
                             'password' => 'required|string|min:6',
                         ];
-                
+
                         // Validate the input
                         $request->validate($rules);
 
