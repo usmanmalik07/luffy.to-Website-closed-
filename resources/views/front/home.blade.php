@@ -106,18 +106,18 @@
     <div class="container d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo"><img src="{{asset('front-assets/assets/img/logo.png')}}" alt="" class="img-fluid"></a>
           <h1 class="logo"><a href="index.html">GuffyLuffy</a></h1>
-          
+
           <nav id="navbar" class="navbar">
-          
+
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="{{ route('shop') }}">⚡Shop⚡</a></li>
           <li class="dropdown"><a href="#"><span>Watch</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Categories</a></li>
-              <li><a href="#imageContainer7">Trending</a></li>
-                  <li><a href="#imageContainer7">Most Viewed</a></li>
-                  <li><a href="#imageContainer7">Latest</a></li>
+              <li><a href="#trending">Categories</a></li>
+              <li><a href="#trending">Trending</a></li>
+                  <li><a href="#most-viewed">Most Viewed</a></li>
+                  <li><a href="#watch-more">Watch More</a></li>
 
             </ul>
           </li>
@@ -131,43 +131,6 @@
       </nav>
     </div>
   </header>
-<!-- 
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <h1 class="logo"><a href="index.html">Dastaan-E</a></h1> -->
-      <!-- Uncomment below if you prefer to use an image logo -->
-      
-
-      <!-- <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#services">⚡Sale⚡</a></li>
-          <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Categories</a></li>    
-              <li><a href="#">Clothing</a></li>
-                  <li><a href="#">Accessories</a></li>
-                  <li><a href="#">Shoes</a></li>
-                  <li><a href="#">Preloved</a></li>
-                  <li><a href="#">Grocery</a></li>
-                  
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto " href="pages/track.html">Tracking</a></li>
-          <li><a class="nav-link scrollto " href="pages/login.html">Admin</a></li>
-          <li><a class="nav-link scrollto " href="pages/checkout.html">Checkout</a></li>
-          <li><a class="nav-link scrollto" href="#about">About-us</a></li>       
-          <li><a class="nav-link scrollto " href="pages/aim.html">Aim</a></li>
-          
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
-
-    </div>
-  </header> -->
-
     <div class="container1" id="hero">
       <div class="bg1">
         <img src="" alt="">
@@ -185,7 +148,7 @@
       </div>
     </div>
       <!-- TRENDING -->
-    <h1 class="heading">TRENDING</h1>
+    <h1 class="heading" id="trending">TRENDING</h1>
 <div id="grid">
           <div id="imageContainer1" class="col col1"></div>
           <div id="imageContainer2" class="col col2"></div>
@@ -197,7 +160,7 @@
 </div>
 
 
-<h1 class="heading">MOST VIEWED</h1>
+<h1 class="heading" id="most-viewed">MOST VIEWED</h1>
 <div id="grid2">
           <div id="imageContainer3" class="col col3"></div>
           <div id="imageContainer7" class="col col7"></div>
@@ -210,7 +173,7 @@
 
 <div class="container-fluid pb-video-container">
   <div class="col-md-12 col-md-offset-1">
-    <h1 class="heading">WATCH MORE</h1>
+    <h1 class="heading" id="watch-more">WATCH MORE</h1>
       <div class="row pb-row">
           <div id="0" class="col-md-2 pb-video">
               <a href="{{asset('front-assets/pages/watchindex.html?webseries=0')}}">
@@ -379,7 +342,7 @@
 
 
 <!-- CONTACT US -->
-<!-- 
+<!--
       </div>
   </div>
 </div>
@@ -423,6 +386,33 @@
         <script type="module" src="./script.js"></script>  -->
         <script src="{{asset('front-assets/script/videoscript.js')}}"></script>
         <script src="{{asset('front-assets/script/video-list.js')}}"></script>
+
+        <script>
+        document.getElementById('imageContainer1').addEventListener('click', function() {
+        // Change the URL to the desired website
+        window.location.href = "{{asset('front-assets/pages/watchindex.html?webseries=0')}}";
+        });
+        document.getElementById('imageContainer2').addEventListener('click', function() {
+        // Change the URL to the desired website
+        window.location.href = "{{asset('front-assets/pages/watchindex.html?webseries=1')}}";
+        });
+        document.getElementById('imageContainer3').addEventListener('click', function() {
+        // Change the URL to the desired website
+        window.location.href = "{{asset('front-assets/pages/watchindex.html?webseries=2')}}";
+        });
+        document.getElementById('imageContainer4').addEventListener('click', function() {
+        // Change the URL to the desired website
+        window.location.href = "{{asset('front-assets/pages/watchindex.html?webseries=3')}}";
+        });
+        document.getElementById('imageContainer5').addEventListener('click', function() {
+        // Change the URL to the desired website
+        window.location.href = "{{asset('front-assets/pages/watchindex.html?webseries=4')}}";
+        });
+        document.getElementById('imageContainer6').addEventListener('click', function() {
+        // Change the URL to the desired website
+        window.location.href = "{{asset('front-assets/pages/watchindex.html?webseries=5')}}";
+        });
+        </script>
 
 
 

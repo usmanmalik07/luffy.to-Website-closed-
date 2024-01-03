@@ -1,30 +1,30 @@
 document.getElementById('imageContainer1').addEventListener('click', function() {
   // Change the URL to the desired website
-  window.location.href = "watch/op.html";
+  window.location.href = "{{asset('front-assets/pages/watchindex.html?webseries=0')}}";
 });
 document.getElementById('imageContainer2').addEventListener('click', function() {
   // Change the URL to the desired website
-  window.location.href = "watch/tokyoghoul.html";
+  window.location.href = "{{asset('front-assets/pages/watchindex.html?webseries=0')}}";
 });
 document.getElementById('imageContainer3').addEventListener('click', function() {
   // Change the URL to the desired website
-  window.location.href = "watch/aot.html";
+  window.location.href = "{{asset('front-assets/pages/watchindex.html?webseries=0')}}";
 });
 document.getElementById('imageContainer4').addEventListener('click', function() {
   // Change the URL to the desired website
-  window.location.href = "watch/haikyuu.html";
+  window.location.href = "{{asset('front-assets/pages/watchindex.html?webseries=0')}}";
 });
 document.getElementById('imageContainer5').addEventListener('click', function() {
   // Change the URL to the desired website
-  window.location.href = "watch/charlotte.html";
+  window.location.href = "{{asset('front-assets/pages/watchindex.html?webseries=0')}}";
 });
 document.getElementById('imageContainer6').addEventListener('click', function() {
   // Change the URL to the desired website
-  window.location.href = "watch/hxh.html";
+  window.location.href = "{{asset('front-assets/pages/watchindex.html?webseries=0')}}";
 });
 document.getElementById('imageContainer7').addEventListener('click', function() {
   // Change the URL to the desired website
-  window.location.href = "watch/naruto.html";
+  window.location.href = "{{asset('front-assets/pages/watchindex.html?webseries=0')}}";
 });
 
 const formHeading = document.querySelector(".form-heading");
@@ -80,7 +80,7 @@ formInputs.forEach((input) => {
   }
 
   /**
-   * Easy on scroll event listener 
+   * Easy on scroll event listener
    */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
@@ -221,7 +221,7 @@ formInputs.forEach((input) => {
   }
 
   /**
-   * Initiate portfolio lightbox 
+   * Initiate portfolio lightbox
    */
   const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
@@ -273,7 +273,7 @@ formInputs.forEach((input) => {
   }
 
   /**
-   * Initiate Pure Counter 
+   * Initiate Pure Counter
    */
   new PureCounter();
 
