@@ -15,9 +15,9 @@
 
   <!-- Vendor CSS Files -->
   <link href="{{asset('front-assets/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-  <link href="{{asset('front-assets/assets/img/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
-  <link href="{{asset('front-assets/assets/img/assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
-  <link href="{{asset('front-assets/assets/img/assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+  <link href="{{asset('front-assets/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{asset('front-assets/assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{asset('front-assets/assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
  <link rel="stylesheet" href="{{asset('front-assets/assets/style/style.css')}}">
@@ -104,8 +104,11 @@
 <body>
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="logo"><a href="index.html">Dekho Pakistan TV</a></h1>
+        <a href="index.html" class="logo"><img src="{{asset('front-assets/assets/img/logo.png')}}" alt="" class="img-fluid"></a>
+          <h1 class="logo"><a href="index.html">GuffyLuffy</a></h1>
+          
           <nav id="navbar" class="navbar">
+          
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="{{ route('shop') }}">⚡Shop⚡</a></li>
@@ -127,12 +130,48 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
     </div>
-  </header><!-- End Header -->
+  </header>
+<!-- 
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.html">Dastaan-E</a></h1> -->
+      <!-- Uncomment below if you prefer to use an image logo -->
+      
+
+      <!-- <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#services">⚡Sale⚡</a></li>
+          <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Categories</a></li>    
+              <li><a href="#">Clothing</a></li>
+                  <li><a href="#">Accessories</a></li>
+                  <li><a href="#">Shoes</a></li>
+                  <li><a href="#">Preloved</a></li>
+                  <li><a href="#">Grocery</a></li>
+                  
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto " href="pages/track.html">Tracking</a></li>
+          <li><a class="nav-link scrollto " href="pages/login.html">Admin</a></li>
+          <li><a class="nav-link scrollto " href="pages/checkout.html">Checkout</a></li>
+          <li><a class="nav-link scrollto" href="#about">About-us</a></li>       
+          <li><a class="nav-link scrollto " href="pages/aim.html">Aim</a></li>
+          
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+    </div>
+  </header> -->
 
     <div class="container1" id="hero">
       <div class="bg1">
         <img src="" alt="">
-        <h1>Dekho Pakistan TV <br> Bringing Anime to Pakistan</h1>
+        <h1>GuffyLuffy <br> Discover, Stream, Enjoy</h1>
       </div>
       <div class="bg-reveal-1">
         <div></div>
@@ -340,7 +379,7 @@
 
 
 <!-- CONTACT US -->
-
+<!-- 
       </div>
   </div>
 </div>
@@ -373,7 +412,7 @@
       <input type="submit" class="form-submit-btn-1" value="Send Request" />
     </form>
   </div>
-</div>
+</div> -->
 
 
 
