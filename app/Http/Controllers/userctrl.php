@@ -115,13 +115,26 @@ class userctrl extends Controller
                     if ($request->isMethod('post')) {
                         $registeruser = new registeruser();
 
+                        $rules = [
+                            'name' => 'required|string|max:255',
+                            'email' => 'required|email|unique:users',
+                            'password' => 'required|string|min:6',
+                        ];
+                
+                        // Validate the input
+                        $request->validate($rules);
+
                         $input = $request->all();
+                        // $registeruser->name = $request->input('name');
+                        // $registeruser->email = $request->input('email');
+                        // $registeruser->password = bcrypt($request->input('password'));
 
                         $registeruser->name = $request->input('name');
                         $registeruser->email = $request->input('email');
                         $registeruser->password = $request->input('password');
                         $registeruser->save();
-                        return redirect('indexlogin');
+
+                        return redirect('front.shop');
                     } else return view('signup');
                 }
 

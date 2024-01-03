@@ -22,7 +22,7 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
-                        <form action="/signup" method="POST" enctype="multipart/form-data" class="register-form" id="register-form">
+                        <form action="/signup" method="POST" enctype="multipart/form-data" class="register-form" id="register-form" >
                         @csrf
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
