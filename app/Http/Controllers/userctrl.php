@@ -214,5 +214,8 @@ class userctrl extends Controller
         Item::destroy($id);
         return redirect()->route('shop')->with('success', 'Item removed successfully.');
     }
+
+
+
 }
 

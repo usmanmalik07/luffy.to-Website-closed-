@@ -20,7 +20,7 @@ use App\Http\Controllers\AnimeController;
 //     return view('welcome');
 // });
 Route::get('/',[FrontController::class,'index'])->name('front.home');
-Route::get('/shop',[FrontController::class,'shop'])->name('front.shop');
+Route::get('/Shop',[userctrl::class,'showShop'])->name('shop');
 Route::get('/aboutus',[FrontController::class,'aboutus'])->name('front.aboutus');
 // Route::get('/', function () {
 //     return view('login');
@@ -41,4 +41,10 @@ Route::get('/printItem', [userctrl::class, 'printItem'])->name('print.item');
 Route::post('/add-Item', [userctrl::class, 'addItem'])->name('add.Item');
 Route::delete('/remove-Item/{id}', [userctrl::class, 'removeName'])->name('remove.Item');
 Route::get('/search', [userctrl::class, 'search'])->name("search.name");
+// Route::get('/shop', [userctrl::class, 'showShop'])->name('shop.show');
+Route::post('/shop/addShop', [userctrl::class, 'addItemShop'])->name('shop.addItemShop');
+Route::delete('/shop/remove/{id}', [userctrl::class, 'removeItemShop'])->name('shop.removeItemShop');
+
+
+
 
