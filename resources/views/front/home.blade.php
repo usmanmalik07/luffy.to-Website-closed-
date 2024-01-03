@@ -96,7 +96,7 @@
   background-image: url('{{ asset('front-assets/assets/img/naruto.jpg') }}');;
 }
  </style>
-  
+
 
 </head>
 
@@ -108,7 +108,7 @@
           <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="{{ route('front.shop') }}">⚡Shop⚡</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('shop') }}">⚡Shop⚡</a></li>
           <li class="dropdown"><a href="#"><span>Watch</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Categories</a></li>
@@ -166,7 +166,7 @@
           <div id="imageContainer5" class="col col5"></div>
           <div id="imageContainer4" class="col col4"></div>
           <div id="imageContainer2" class="col col2"></div>
-          <div id="imageContainer6" class="col col6"></div>       
+          <div id="imageContainer6" class="col col6"></div>
 </div>
 
 <div class="container-fluid pb-video-container">
