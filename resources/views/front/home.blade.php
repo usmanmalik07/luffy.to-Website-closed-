@@ -131,6 +131,43 @@
       </nav>
     </div>
   </header>
+<!--
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.html">Dastaan-E</a></h1> -->
+      <!-- Uncomment below if you prefer to use an image logo -->
+
+
+      <!-- <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#services">⚡Sale⚡</a></li>
+          <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Categories</a></li>
+              <li><a href="#">Clothing</a></li>
+                  <li><a href="#">Accessories</a></li>
+                  <li><a href="#">Shoes</a></li>
+                  <li><a href="#">Preloved</a></li>
+                  <li><a href="#">Grocery</a></li>
+
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto " href="pages/track.html">Tracking</a></li>
+          <li><a class="nav-link scrollto " href="pages/login.html">Admin</a></li>
+          <li><a class="nav-link scrollto " href="pages/checkout.html">Checkout</a></li>
+          <li><a class="nav-link scrollto" href="#about">About-us</a></li>
+          <li><a class="nav-link scrollto " href="pages/aim.html">Aim</a></li>
+
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+    </div>
+  </header> -->
+
     <div class="container1" id="hero">
       <div class="bg1">
         <img src="" alt="">
@@ -156,7 +193,7 @@
           <div id="imageContainer4" class="col col4"></div>
           <div id="imageContainer5" class="col col5"></div>
           <div id="imageContainer6" class="col col6"></div>
-          <div id="imageContainer7" class="col col7"></div>
+
 </div>
 
 
@@ -168,7 +205,7 @@
           <div id="imageContainer5" class="col col5"></div>
           <div id="imageContainer4" class="col col4"></div>
           <div id="imageContainer2" class="col col2"></div>
-          <div id="imageContainer6" class="col col6"></div>
+
 </div>
 
 <div class="container-fluid pb-video-container">
